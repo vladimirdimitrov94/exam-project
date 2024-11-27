@@ -1,0 +1,14 @@
+<div class="catalogue">
+    @if (isLoading) {
+    <app-loader />
+
+    }@else{
+
+    @for (cocktail of cocktails; track $index) {
+    <div class="cocktail">
+        <div>{{cocktail.name}}</div>
+        <img src={{cocktail.img}}>
+    </div>
+    }
+    }
+</div>
