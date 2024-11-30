@@ -7,7 +7,7 @@ import { LoaderComponent } from '../../shared/loader/loader.component';
 @Component({
   selector: 'app-catalogue',
   standalone: true,
-  imports: [LoaderComponent],
+  imports: [LoaderComponent, RouterLink, LoaderComponent],
   templateUrl: './catalogue.component.html',
   styleUrl: './catalogue.component.css'
 })

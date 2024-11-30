@@ -1,8 +1,62 @@
+<main id="add-edit">
+    <h1>Add Cocktail</h1>
+    <form #form="ngForm" (ngSubmit)="addCocktail(form)">
+        <label for="name">Product Name</label>
+        <input type="text" id="name" name="name" required ngModel #inputName="ngModel"><br>
 
-<div class="add-cocktail">
-    Cocktail Name: <input type="text" placeholder="Cocktail Name">
-    Ingredients needed: <input type="text" placeholder="Ingredients">
-    How to make: <input type="text" placeholder="How to make">
-    Picture URL: <input type="url" placeholder="Cocktail picture">
-    Strength: <input type="number" placeholder="Strength">
-</div>
+        @if (inputName.touched) {
+            <div>
+                @if (inputName?.errors?.['required']) {
+                    <div class="error">Product Name is required</div>
+                }
+            </div>
+        }
+
+        <label for="ingredients">Ingredients</label>
+        <textarea id="ingredients" name="ingredients" required ngModel #inputIngredients="ngModel"></textarea><br>
+
+        @if (inputIngredients.touched) {
+            <div>
+                @if (inputIngredients?.errors?.['required']) {
+                    <div class="error">Product Name is required</div>
+                }
+            </div>
+        }
+
+        <label for="method">Method</label>
+        <textarea id="method" name="method" required ngModel #inputMethod="ngModel"></textarea><br>
+
+        @if (inputMethod.touched) {
+            <div>
+                @if (inputMethod?.errors?.['required']) {
+                    <div class="error">Product Name is required</div>
+                }
+            </div>
+        }
+
+        <label for="strength">Strength</label>
+        <input type="text" id="strength" name="strength" required ngModel #inputStrength="ngModel">
+        <br>
+
+        @if (inputStrength.touched) {
+            <div>
+                @if (inputStrength?.errors?.['required']) {
+                    <div class="error">Product Name is required</div>
+                }
+            </div>
+        }
+
+        <label for="picture">Picture</label>
+        <input type="url" id="picture" name="picture" required ngModel #inputImg="ngModel"><br>
+
+        @if (inputImg.touched) {
+            <div>
+                @if (inputImg?.errors?.['required']) {
+                    <div class="error">Product Name is required</div>
+                }
+            </div>
+        }
+
+        <button [disabled]="form.invalid" class="btn">Submit</button>
+    </form>
+</main>

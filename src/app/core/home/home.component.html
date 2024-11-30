@@ -1,10 +1,20 @@
-@if (isLoading) {
-<app-loader />
-}@else {
+<main id="home">
+    <h1>Welcome to the Cocktail Lab</h1>
 
-<div class="home">
-    <div class="cocktail">Cocktail IMG</div>
-    <div class="cocktail">Cocktail IMG</div>
-    <div class="cocktail">Cocktail IMG</div>
-</div>
-}
+
+    @if(cocktails.length == 0){
+    <app-loader />
+    } @else {
+
+    @for (cocktail of cocktails; track $index) {
+    <div class="product-grid">
+        <div class="product-card">
+            <a routerLink="/cocktails/{{cocktail.objectId}}">
+                <img src={{cocktail.img}} alt="Product 2">
+            </a>
+            <h3>{{cocktail.name}}</h3>
+        </div>
+    </div>
+    }
+    }
+</main>

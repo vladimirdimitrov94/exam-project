@@ -1,14 +1,18 @@
-<div class="catalogue">
+<main id="catalogue">
+    <h1>All Products</h1>
+
     @if (isLoading) {
     <app-loader />
-
-    }@else{
-
-    @for (cocktail of cocktails; track $index) {
-    <div class="cocktail">
-        <div>{{cocktail.name}}</div>
-        <img src={{cocktail.img}}>
+    } @else {
+    @for (cocktail of cocktails; track $index){
+    <div class="product-grid">
+        <div class="product-card">
+            <img src={{cocktail.img}} alt="Product">
+            <h3>{{cocktail.name}}</h3>
+            <a routerLink="/cocktails/{{cocktail.objectId}}" class="btn">Details</a>
+        </div>
+        <!-- Repeat for other products -->
     </div>
     }
     }
-</div>
+</main>

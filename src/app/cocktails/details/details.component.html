@@ -1,1 +1,17 @@
-<div>Details work</div>
+@if (isLoading) {
+    <app-loader/>
+}@else {
+
+<main id="details">
+    <h1>Product Details</h1>
+    <img src={{cocktail.img}} alt="Product">
+    <h2>{{cocktail.name}}</h2>
+    <p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
+    <p><strong>Method:</strong> {{cocktail.method}} </p>
+    <p><strong>Strength:</strong> {{cocktail.strength}} </p>
+    <p><strong>Likes:</strong> {{cocktail.likes}} </p>
+    <a class="btn">Like</a>
+    <a class="btn" routerLink="/edit/{{cocktail.objectId}}">Edit</a>
+    <a class="btn">Delete</a>
+</main>
+}

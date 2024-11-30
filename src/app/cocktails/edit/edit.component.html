@@ -1,1 +1,22 @@
-<p>edit works!</p>
+<main id="add-edit">
+    <h1>Edit Cocktail</h1>
+    <form>
+        <label for="name">Product Name</label>
+        <input type="text" id="name" name="name" required value="{{coktail?.name}}"><br>
+
+        <label for="ingredients">Ingredients</label>
+        <textarea id="ingredients" name="ingredients" required value="{{coktail?.ingredients}}"></textarea><br>
+
+        <label for="method">Method</label>
+        <textarea id="method" name="method" required value="{{coktail?.method}}"></textarea><br>
+
+        <label for="strength">Strength</label>
+        <input type="number" id="strength" name="strength" value="{{coktail?.strength}}">
+        <br>
+
+        <label for="picture">Picture</label>
+        <input type="url" id="picture" name="picture" required value="{{coktail?.img}}"><br>
+
+        <button type="submit" class="btn">Save</button>
+    </form>
+</main>

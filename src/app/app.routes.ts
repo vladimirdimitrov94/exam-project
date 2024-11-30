@@ -11,14 +11,21 @@ import { DetailsComponent } from './cocktails/details/details.component';
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'cocktails', children:[
-        {path: '',component: CatalogueComponent},
-        {path: ':cocktailId', component: DetailsComponent}
-    ] },
+    {
+        path: 'cocktails', children: [
+            { path: '', component: CatalogueComponent },
+            { path: ':cocktailId', component: DetailsComponent }
+        ]
+    },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'add', component: AddComponent },
-    { path: 'edit', component: EditComponent },
+    {
+        path: 'edit', children: [
+            { path: '', component: EditComponent },
+            { path: ':cocktailId', component: EditComponent }
+        ]
+    },
     { path: '404', component: ErrorScreenComponent },
     { path: '**', redirectTo: '/404' }
 ];

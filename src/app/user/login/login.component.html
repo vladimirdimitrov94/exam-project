@@ -1,6 +1,46 @@
-<div class="login">
-    Email: <input type="text" placeholder="email">
-    Password: <input type="password" placeholder="password">
-    <div class="go-register">Don't have an account? Go to <span routerLink="/register">register</span></div>
-    <div class="btn">Login</div>
-</div>
+<main id="login">
+    <div class="auth-container">
+        <h1>Login</h1>
+        <form #form="ngForm" (ngSubmit)="login(form)">
+            <input 
+            type="email" 
+            name="email" 
+            placeholder="Email" 
+            ngModel
+            required
+            #inputEmail = "ngModel"
+            />
+            @if (inputEmail.touched) {
+                <div>
+                    @if (inputEmail?.errors?.['required']) {
+                        <p class="error">Email is required!</p>
+                    }
+                </div>
+            }
+            
+            <input 
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            required 
+            ngModel
+            #inputPassword = "ngModel"
+            minlength="4"
+            />
+
+            @if (inputPassword.touched) {
+                <div>
+                    @if (inputPassword?.errors?.['required']) {
+                        <p class="error">Password is required!</p>
+                    }
+                    @if (inputPassword?.errors?.['minlength']) {
+                        <p class="error">Password must be at least 4 char!</p>
+                    }
+                </div>
+            }
+
+            <button [disabled]="form.invalid">Login</button>
+        </form>
+        <p>Don't have an account? <a routerLink="/register" style="color: black">Register here</a></p>
+    </div>
+</main>
