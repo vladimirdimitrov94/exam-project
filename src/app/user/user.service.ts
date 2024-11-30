@@ -1,39 +1,62 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { User } from '../types/user';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Subscription, tap, } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnDestroy{
+  private user$$ = new BehaviorSubject<User | null>(null)
+  private user$ = this.user$$.asObservable()
+
   USER_KEY = '[user]';
   user: User | null = null;
+  userSubscription: Subscription | null = null;
 
-  constructor(private http: HttpClient) {
-    try {
-
-    } catch (error) {
-
-    }
+  get isLogged() : boolean {
+    return !!this.user;
   }
 
-  login() {
+  constructor(private http: HttpClient) {
+    this.user$.subscribe((user) => {
+      this.user = user;
+    })
+   }
+
+  login(email: string, password: string) {
+
     const url = "https://api.backendless.com/4D2A8539-DF52-4239-AABA-8BCDFE9BF391/4425D43C-344E-43B3-A811-D68B92E6010F/users/login"
-
-    this.http.post(url, {email: "pesho@abv.bg", password: "1234"})
-
-    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user))
+    return this.http.post<User>(url, { login: email, password }).pipe(tap(user => {
+      this.user$$.next(user)
+      this.user = user;    
+        
+    }))
   }
 
   logout() {
-    this.user = null;
-    localStorage.removeItem(this.USER_KEY);
+    const url = "https://api.backendless.com/4D2A8539-DF52-4239-AABA-8BCDFE9BF391/4425D43C-344E-43B3-A811-D68B92E6010F/users/logout"
+    const headerDict = {
+      'user-token': 'application/json', //TODO fix authorization
+    }
+
+    this.http.get(url, {});
   }
 
-  register(email :string, password: string){
-    const url = "https://lightlysystem-us.backendless.app/api/data/Users"
+  register(email: string, password: string, username: string) {
+    const url = "/api/Users"
 
-    this.http.post(url, {email, password})
-    
+    return this.http.post<User>(url, { email, password, username }).pipe(tap(user => {
+      this.user$$.next(user)
+      this.user = user;
+    }))
+  }
+
+  getUser(){
+    return this.user;
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription?.unsubscribe();
   }
 }

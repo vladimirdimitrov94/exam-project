@@ -10,7 +10,8 @@
         <li><a routerLink="/login">Login</a></li>
         }@else {
         <li><a routerLink="/add">Add</a></li>
-        <li><a routerLink="#logout">Logout</a></li>
+        <li><a (click)="logout()" href="">Logout</a></li>
+        <div>Hello, {{userName}}</div>
         }
     </ul>
 </nav>

@@ -11,18 +11,15 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    const { apiUrl } = environment;
-    return this.http.get<Cocktail[]>(`${apiUrl}/cocktails`)
+    return this.http.get<Cocktail[]>(`/api/cocktails`)
   }
 
   getSingle(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<Cocktail>(`${apiUrl}/cocktails/${id}`)
+    return this.http.get<Cocktail>(`$/api/cocktails/${id}`)
   }
 
   addCocktail(data: {}) {
-    const { apiUrl } = environment;
-    return this.http.post<Cocktail>(`${apiUrl}/cocktails`, data)
+    return this.http.post<Cocktail>(`/api/cocktails`, data)
   }
   
 }
