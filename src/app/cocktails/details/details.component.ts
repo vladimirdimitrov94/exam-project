@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { Cocktail } from '../../types/cokctail';
 import { LoaderComponent } from '../../shared/loader/loader.component';
@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
   isLoading = true;
   isAuthor = false;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService, private router:Router) { }
 
   get isLogged(): boolean {
     return this.userService.isLogged
@@ -47,6 +47,20 @@ export class DetailsComponent implements OnInit {
 
     }
     )
+  }
+
+  delete(id:string){
+    this.apiService.deleteCocktail(id).subscribe(() => {
+      this.router.navigate(['/cocktails'])
+    })
+  }
+
+  like(){
+    this.cocktail.likes ++;
+    const likes = this.cocktail.likes
+    this.apiService.editCocktail(this.cocktail.objectId, likes).subscribe((c) => {
+      console.log(c);
+    })
   }
 
 }

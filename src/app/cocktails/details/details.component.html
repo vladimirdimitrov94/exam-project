@@ -11,10 +11,10 @@
     <p><strong>Strength:</strong> {{cocktail.strength}} </p>
     <p><strong>Likes:</strong> {{cocktail.likes}} </p>
     @if (!isAuthor) {
-    <a class="btn">Like</a>
+    <a class="btn" (click)="like()">Like</a>
     } @else {
     <a class="btn" routerLink="/edit/{{cocktail.objectId}}">Edit</a>
-    <a class="btn">Delete</a>
+    <a class="btn" (click)="delete(cocktail.objectId)">Delete</a>
     }
 </main>
 }

@@ -18,8 +18,11 @@ export class CatalogueComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getAll().subscribe(c =>
-      this.cocktails = c)
+    this.apiService.getAll().subscribe(c => {
+      this.cocktails = c
+      this.cocktails.sort((a, b) => b.created - a.created)
+    })
+
     this.isLoading = false
   }
 }

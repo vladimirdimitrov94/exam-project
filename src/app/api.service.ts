@@ -25,4 +25,7 @@ export class ApiService {
     return this.http.put(`/api/cocktails/${id}`, data)
   }
   
+  deleteCocktail(id: string){
+    return this.http.delete(`/api/cocktails/${id}`)
+  }
 }

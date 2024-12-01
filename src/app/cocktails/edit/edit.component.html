@@ -2,7 +2,7 @@
     <h1>Edit Cocktail</h1>
     <form #form="ngForm" (ngSubmit)="edit(form)">
         <label for="name">Product Name</label>
-        <input type="text" id="name" name="name" required value="{{coktail?.name}}" ngModel #inputName="ngModel"><br>
+        <input type="text" id="name" name="name" required ngModel="{{coktail?.name}}" #inputName="ngModel"><br>
 
         @if (inputName.touched) {
             <div>
@@ -13,7 +13,7 @@
         }
 
         <label for="ingredients">Ingredients</label>
-        <textarea id="ingredients" name="ingredients" required value="{{coktail?.ingredients}}" ngModel #inputIngredients="ngModel"></textarea><br>
+        <textarea id="ingredients" name="ingredients" required ngModel="{{coktail?.ingredients}}" #inputIngredients="ngModel"></textarea><br>
 
         @if (inputIngredients.touched) {
             <div>
@@ -24,7 +24,7 @@
         }
 
         <label for="method">Method</label>
-        <textarea id="method" name="method" required value="{{coktail?.method}}" ngModel #inputMethod="ngModel"></textarea><br>
+        <textarea id="method" name="method" required ngModel="{{coktail?.method}}" #inputMethod="ngModel"></textarea><br>
 
         @if (inputMethod.touched) {
             <div>
@@ -35,7 +35,7 @@
         }
 
         <label for="strength">Strength</label>
-        <input type="text" id="strength" name="strength" required value="{{coktail?.strength}}" ngModel #inputStrength="ngModel">
+        <input type="text" id="strength" name="strength" required ngModel="{{coktail?.strength}}" #inputStrength="ngModel">
         <br>
 
         @if (inputStrength.touched) {
@@ -47,7 +47,7 @@
         }
 
         <label for="picture">Picture</label>
-        <input type="url" id="picture" name="picture" required value="{{coktail?.img}}" ngModel #inputPicture="ngModel"><br>
+        <input type="text" id="picture" name="img" required ngModel="{{coktail?.img}}" #inputPicture="ngModel"><br>
 
         @if (inputPicture.touched) {
             <div>
