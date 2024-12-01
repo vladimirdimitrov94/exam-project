@@ -1,4 +1,3 @@
-import { User } from "./user";
 
 export interface Cocktail {
     created: number;
@@ -7,7 +6,7 @@ export interface Cocktail {
     method: string;
     name: string;
     objectId: string;
-    ownerId: User;
+    ownerId: string;
     strength: string;
     likes: number;
 }

@@ -20,5 +20,9 @@ export class ApiService {
   addCocktail(data: {}) {
     return this.http.post<Cocktail>(`/api/cocktails`, data)
   }
+
+  editCocktail(id: string, data: {}){
+    return this.http.put(`/api/cocktails/${id}`, data)
+  }
   
 }
