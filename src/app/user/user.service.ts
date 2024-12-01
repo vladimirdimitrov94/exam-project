@@ -36,11 +36,7 @@ export class UserService implements OnDestroy{
 
   logout() {
     const url = "https://api.backendless.com/4D2A8539-DF52-4239-AABA-8BCDFE9BF391/4425D43C-344E-43B3-A811-D68B92E6010F/users/logout"
-    const headerDict = {
-      'user-token': 'application/json', //TODO fix authorization
-    }
-
-    this.http.get(url, {});
+    this.http.get(url);
   }
 
   register(email: string, password: string, username: string) {

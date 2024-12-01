@@ -19,7 +19,7 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService:ApiService) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['cocktailId'];
+    const id = this.route.snapshot.params['cocktailId'];    
 
     this.apiService.getSingle(id).subscribe(c =>
       this.cocktail = c

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment.development';
 import { Cocktail } from './types/cokctail';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class ApiService {
   }
 
   getSingle(id: string) {
-    return this.http.get<Cocktail>(`$/api/cocktails/${id}`)
+    return this.http.get<Cocktail>(`/api/cocktails/${id}`)
   }
 
   addCocktail(data: {}) {
