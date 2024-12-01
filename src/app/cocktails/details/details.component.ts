@@ -58,9 +58,7 @@ export class DetailsComponent implements OnInit {
   like(){
     this.cocktail.likes ++;
     const likes = this.cocktail.likes
-    this.apiService.editCocktail(this.cocktail.objectId, likes).subscribe((c) => {
-      console.log(c);
-    })
+    this.apiService.editCocktail(this.cocktail.objectId, {likes: likes}).subscribe(() => {})
   }
 
 }
