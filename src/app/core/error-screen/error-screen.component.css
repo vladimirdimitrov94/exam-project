@@ -1,0 +1,32 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+
+  .not-found-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .error-message {
+    font-size: 1.5rem;
+    margin: 10px 0 20px;
+  }
+  
+  
+  

@@ -1,8 +1,9 @@
-footer {
-    flex-shrink: 0; /* Prevent footer from shrinking */
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto; /* Push footer to bottom when content is short */
-}
+.footer {
+    height: 35px;
+    background-color: bisque;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+  }

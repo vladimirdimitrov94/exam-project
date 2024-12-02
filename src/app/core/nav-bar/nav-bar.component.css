@@ -1,22 +1,29 @@
-nav {
+mat-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-  color: white;
+  background-color: bisque;
+  position: fixed;
+  top: 0;
+  height: 50px;
 }
 
-nav .logo {
+.logo {
   font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
-nav ul {
-  list-style: none;
+.nav-links {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 1rem;
 }
 
-nav ul li {
-  display: inline;
+.welcome-message {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: black;
 }

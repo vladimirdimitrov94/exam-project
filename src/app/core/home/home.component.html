@@ -1,20 +1,21 @@
-<main id="home">
-    <h1>Welcome to the Cocktail Lab</h1>
+<h1>Welcome to the Cocktail Lab</h1>
 
+
+<main id="home">
 
     @if(cocktails.length == 0){
     <app-loader />
     } @else {
 
     @for (cocktail of cocktails; track $index) {
-    <div class="product-grid">
+    <mat-card>
         <div class="product-card">
             <a routerLink="/cocktails/{{cocktail.objectId}}">
                 <img src={{cocktail.img}} alt="Product 2">
             </a>
             <h3>{{cocktail.name}}</h3>
         </div>
-    </div>
+    </mat-card>
     }
     }
 </main>

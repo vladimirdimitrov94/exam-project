@@ -1,8 +1,8 @@
-<!-- Register Page -->
+
 <main id="register">
     <div class="auth-container">
-        <h1>Register</h1>
-        <form [formGroup]="form" (ngSubmit)="register()" method="post">
+        <h1 class="auth-title">Register</h1>
+        <form class="auth-form" [formGroup]="form" (ngSubmit)="register()" method="post">
             <input type="text" name="username" placeholder="Username" required formControlName="username">
 
             @if (form.get('username')?.touched) {
@@ -27,7 +27,7 @@
                 }
             </div>
             }
-            <form formGroupName="passGroup">
+            <form class="auth-form" formGroupName="passGroup">
                 <input type="password" name="password" placeholder="Password" required formControlName="password">
                 @if (form.get('passGroup')?.get('password')?.touched) {
                 <div>
@@ -54,6 +54,6 @@
             </form>
             <button [disabled]='form.invalid'>Register</button>
         </form>
-        <p>Already have an account? <a routerLink="/login" style="color: black">Login here</a></p>
+        <p >Already have an account? <a routerLink="/login" style="color: black">Login here</a></p>
     </div>
 </main>

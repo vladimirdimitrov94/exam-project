@@ -1,7 +1,7 @@
 <main id="login">
     <div class="auth-container">
         <h1>Login</h1>
-        <form #form="ngForm" (ngSubmit)="login(form)">
+        <form class="auth-form" #form="ngForm" (ngSubmit)="login(form)">
             <input 
             type="email" 
             name="email" 
@@ -42,7 +42,7 @@
             @if (errorMessage) {
                 <div class="error">{{errorMessage}}</div>
             }
-            <button [disabled]="form.invalid" >Login</button>
+            <button [disabled]="form.invalid">Login</button>
         </form>
         <p>Don't have an account? <a routerLink="/register" style="color: black">Register here</a></p>
     </div>

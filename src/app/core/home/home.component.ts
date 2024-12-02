@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { Cocktail } from '../../types/cokctail';
 import { ApiService } from '../../api.service';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LoaderComponent, RouterLink],
+  imports: [LoaderComponent, RouterLink, MatCardModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

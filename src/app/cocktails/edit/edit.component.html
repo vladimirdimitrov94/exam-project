@@ -1,63 +1,77 @@
-<main id="add-edit">
+<main id="edit">
     <h1>Edit Cocktail</h1>
-    <form #form="ngForm" (ngSubmit)="edit(form)">
-        <label for="name">Product Name</label>
-        <input type="text" id="name" name="name" required ngModel="{{coktail?.name}}" #inputName="ngModel"><br>
+    <form class="form-container" #form="ngForm" (ngSubmit)="edit(form)">
 
-        @if (inputName.touched) {
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" class="form-input" required ngModel="{{coktail?.name}}" #inputName="ngModel"><br>
+
+            @if (inputName.touched) {
             <div>
                 @if (inputName?.errors?.['required']) {
-                    <div class="error">Product Name is required</div>
+                <div class="error">Product Name is required</div>
                 }
             </div>
-        }
+            }
+        </div>
 
-        <label for="ingredients">Ingredients</label>
-        <textarea id="ingredients" name="ingredients" required ngModel="{{coktail?.ingredients}}" #inputIngredients="ngModel"></textarea><br>
 
-        @if (inputIngredients.touched) {
+        <div class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <textarea id="ingredients" name="ingredients" class="form-textarea" required ngModel="{{coktail?.ingredients}}"
+                #inputIngredients="ngModel"></textarea><br>
+
+            @if (inputIngredients.touched) {
             <div>
                 @if (inputIngredients?.errors?.['required']) {
-                    <div class="error">Product Ingredients are required</div>
+                <div class="error">Product Ingredients are required</div>
                 }
             </div>
-        }
+            }
+        </div>
 
-        <label for="method">Method</label>
-        <textarea id="method" name="method" required ngModel="{{coktail?.method}}" #inputMethod="ngModel"></textarea><br>
+        <div class="form-group">
+            <label for="method">Method</label>
+            <textarea id="method" name="method" class="form-textarea" required ngModel="{{coktail?.method}}"
+                #inputMethod="ngModel"></textarea><br>
 
-        @if (inputMethod.touched) {
+            @if (inputMethod.touched) {
             <div>
                 @if (inputMethod?.errors?.['required']) {
-                    <div class="error">Product Method is required</div>
+                <div class="error">Product Method is required</div>
                 }
             </div>
-        }
+            }
+        </div>
 
-        <label for="strength">Strength</label>
-        <input type="text" id="strength" name="strength" required ngModel="{{coktail?.strength}}" #inputStrength="ngModel">
-        <br>
+        <div class="form-group">
+            <label for="strength">Strength</label>
+            <input type="text" id="strength" name="strength" class="form-input" required ngModel="{{coktail?.strength}}"
+                #inputStrength="ngModel">
+            <br>
 
-        @if (inputStrength.touched) {
+            @if (inputStrength.touched) {
             <div>
                 @if (inputStrength?.errors?.['required']) {
-                    <div class="error">Product Strength is required</div>
+                <div class="error">Product Strength is required</div>
                 }
             </div>
-        }
+            }
+        </div>
 
-        <label for="picture">Picture</label>
-        <input type="text" id="picture" name="img" required ngModel="{{coktail?.img}}" #inputPicture="ngModel"><br>
+        <div class="form-group">
+            <label for="picture">Picture</label>
+            <input type="text" id="picture" name="img" class="form-input" required ngModel="{{coktail?.img}}" #inputPicture="ngModel"><br>
 
-        @if (inputPicture.touched) {
+            @if (inputPicture.touched) {
             <div>
                 @if (inputPicture?.errors?.['required']) {
-                    <div class="error">Product Picture is required</div>
+                <div class="error">Product Picture is required</div>
                 }
             </div>
-        }
+            }
+        </div>
 
-
-        <button class="btn">Save</button>
+        <button>Save</button>
     </form>
 </main>

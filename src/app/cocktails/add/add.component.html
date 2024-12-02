@@ -1,62 +1,71 @@
-<main id="add-edit">
+<main id="add">
     <h1>Add Cocktail</h1>
-    <form #form="ngForm" (ngSubmit)="addCocktail(form)">
-        <label for="name">Product Name</label>
-        <input type="text" id="name" name="name" required ngModel #inputName="ngModel"><br>
+    <form class="form-container" #form="ngForm" (ngSubmit)="addCocktail(form)">
 
-        @if (inputName.touched) {
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" class="form-input" required ngModel #inputName="ngModel"><br>
+
+            @if (inputName.touched) {
             <div>
                 @if (inputName?.errors?.['required']) {
-                    <div class="error">Product Name is required</div>
+                <div class="error">Product Name is required</div>
                 }
             </div>
-        }
+            }
+        </div>
+        <div class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <textarea id="ingredients" name="ingredients" class="form-textarea" required ngModel
+                #inputIngredients="ngModel"></textarea><br>
 
-        <label for="ingredients">Ingredients</label>
-        <textarea id="ingredients" name="ingredients" required ngModel #inputIngredients="ngModel"></textarea><br>
-
-        @if (inputIngredients.touched) {
+            @if (inputIngredients.touched) {
             <div>
                 @if (inputIngredients?.errors?.['required']) {
-                    <div class="error">Product Ingredients are required</div>
+                <div class="error">Product Ingredients are required</div>
                 }
             </div>
-        }
+            }
+        </div>
+        <div class="form-group">
+            <label for="method">Method</label>
+            <textarea id="method" name="method" class="form-textarea" required ngModel
+                #inputMethod="ngModel"></textarea><br>
 
-        <label for="method">Method</label>
-        <textarea id="method" name="method" required ngModel #inputMethod="ngModel"></textarea><br>
-
-        @if (inputMethod.touched) {
+            @if (inputMethod.touched) {
             <div>
                 @if (inputMethod?.errors?.['required']) {
-                    <div class="error">Product Method is required</div>
+                <div class="error">Product Method is required</div>
                 }
             </div>
-        }
+            }
+        </div>
+        <div class="form-group">
+            <label for="strength">Strength</label>
+            <input type="text" id="strength" name="strength" class="form-input" required ngModel
+                #inputStrength="ngModel">
+            <br>
 
-        <label for="strength">Strength</label>
-        <input type="text" id="strength" name="strength" required ngModel #inputStrength="ngModel">
-        <br>
-
-        @if (inputStrength.touched) {
+            @if (inputStrength.touched) {
             <div>
                 @if (inputStrength?.errors?.['required']) {
-                    <div class="error">Product Strength is required</div>
+                <div class="error">Product Strength is required</div>
                 }
             </div>
-        }
+            }
+        </div>
+        <div class="form-group">
+            <label for="picture">Picture</label>
+            <input type="text" id="picture" name="img" class="form-input" required ngModel #inputImg="ngModel"><br>
 
-        <label for="picture">Picture</label>
-        <input type="text" id="picture" name="img" required ngModel #inputImg="ngModel"><br>
-
-        @if (inputImg.touched) {
+            @if (inputImg.touched) {
             <div>
                 @if (inputImg?.errors?.['required']) {
-                    <div class="error">Product Picture is required</div>
+                <div class="error">Product Picture is required</div>
                 }
             </div>
-        }
-
+            }
+        </div>
         <button [disabled]="form.invalid" class="btn">Submit</button>
     </form>
 </main>

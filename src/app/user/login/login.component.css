@@ -1,0 +1,78 @@
+/* Основен контейнер */
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  /* Контейнер за формата */
+  .auth-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Заглавие */
+  .auth-title {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  /* Формуляр */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Входни полета */
+  .auth-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .auth-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Бутон за регистрация */
+  button {
+    width: 70px;
+    align-self: center;
+  }
+  
+  .auth-button:hover {
+    background-color: #0056b3;
+  }
+  
+ 
+  .auth-footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .auth-footer .auth-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .auth-footer .auth-link:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,20 +1,56 @@
 @if (isLoading) {
-    <app-loader/>
+<app-loader />
 }@else {
 
 <main id="details">
-    <h1>Product Details</h1>
-    <img src={{cocktail.img}} alt="Product">
-    <h2>{{cocktail.name}}</h2>
-    <p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
-    <p><strong>Method:</strong> {{cocktail.method}} </p>
-    <p><strong>Strength:</strong> {{cocktail.strength}} </p>
-    <p><strong>Likes:</strong> {{cocktail.likes}} </p>
-    @if (!isAuthor) {
-    <a class="btn" (click)="like()">Like</a>
-    } @else {
-    <a class="btn" routerLink="/edit/{{cocktail.objectId}}">Edit</a>
-    <a class="btn" (click)="delete(cocktail.objectId)">Delete</a>
-    }
+    <div class="details-card">
+        <div class="details-container">
+
+            <div class="details-image">
+                <img src={{cocktail.img}} alt="Product">
+            </div>
+
+            <div class="details-info">
+
+                <div class="card-content">
+                    <h2>{{ cocktail.name }}</h2>
+                    <p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
+                    <p><strong>Method:</strong> {{cocktail.method}} </p>
+                    <p><strong>Strength:</strong> {{cocktail.strength}} </p>
+                    <p><strong>Likes:</strong> {{cocktail.likes}} </p>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <!-- Ако потребителят не е автор -->
+                @if (!isAuthor) {
+                <button (click)="like()">Like</button>
+                }@else {
+                <!-- Действия за автора -->
+                <button [routerLink]="'/edit/' + cocktail.objectId">Edit</button>
+                <button (click)="delete(cocktail.objectId)">Delete</button>
+                }
+            </div>
+        </div>
+    </div>
 </main>
 }
+
+
+
+
+<!-- <h1>Product Details</h1>
+<img src={{cocktail.img}} alt="Product">
+<h2>{{cocktail.name}}</h2>
+
+
+<p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
+<p><strong>Method:</strong> {{cocktail.method}} </p>
+<p><strong>Strength:</strong> {{cocktail.strength}} </p>
+<p><strong>Likes:</strong> {{cocktail.likes}} </p>
+@if (!isAuthor) {
+<a class="btn" (click)="like()">Like</a>
+} @else {
+<a class="btn" routerLink="/edit/{{cocktail.objectId}}">Edit</a>
+<a class="btn" (click)="delete(cocktail.objectId)">Delete</a>
+} -->
