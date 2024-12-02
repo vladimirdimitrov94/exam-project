@@ -30,7 +30,7 @@ export class UserService implements OnDestroy{
     return this.http.post<User>(url, { login: email, password }).pipe(tap(user => {
       this.user$$.next(user)
       this.user = user;    
-        
+      localStorage.setItem('token', user.objectId)
     }))
   }
 
@@ -38,6 +38,7 @@ export class UserService implements OnDestroy{
     const url = "https://api.backendless.com/4D2A8539-DF52-4239-AABA-8BCDFE9BF391/4425D43C-344E-43B3-A811-D68B92E6010F/users/logout"
     this.http.get(url);
     this.user = null;
+    localStorage.removeItem('token')
   }
 
   register(email: string, password: string, username: string) {

@@ -26,7 +26,6 @@ export class NavBarComponent {
   constructor(private userService: UserService, private router: Router) { }
 
   logout(){
-    console.log("asdsad");
     
     this.userService.logout();
     this.router.navigate(['/home'])

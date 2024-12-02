@@ -22,8 +22,8 @@ mat-toolbar {
   gap: 1rem;
 }
 
-.welcome-message {
-  margin-left: 1rem;
-  font-size: 1rem;
+h1 {
+  /* margin-left: 1rem; */
   color: black;
+  justify-self: flex-end;
 }

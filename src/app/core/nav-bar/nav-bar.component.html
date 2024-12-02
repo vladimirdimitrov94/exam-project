@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
   <div class="logo" routerLink="/home">Cocktail Lab</div>
+  @if (isLogged) {
+    <h1 >Hello, {{ userName }}</h1>
+  }
 
   <div class="nav-links">
     <button mat-button routerLink="/home">Home</button>
@@ -11,9 +14,7 @@
 
     <button routerLink="/add">Add</button>
     <button (click)="logout()">Logout</button>
-    <div class="welcome-message">Hello, {{ userName }}</div>
     }
   </div>
 </mat-toolbar>
 
-<!-- fix logout -->
