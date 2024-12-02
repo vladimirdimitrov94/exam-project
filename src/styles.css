@@ -11,7 +11,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the page spans the full viewport height */
+    /* min-height: 100vh; Ensures the page spans the full viewport height */
 }
 
 a {
@@ -23,41 +23,12 @@ h1, h2 {
     text-align: center;
 }
 
-/* Navbar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
-}
-
-nav .logo {
-    font-size: 1.5rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-/* Main Content */
-main {
-    flex: 1; /* Makes main content grow to fill available space */
-    padding: 20px;
-}
-
 .product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: inline-block;
+    flex-wrap: nowrap; 
     gap: 20px;
+    overflow-x: auto; 
+    padding: 10px;
 }
 
 .btn {
@@ -70,8 +41,8 @@ main {
     padding: 10px;
     text-align: center;
     background: #f9f9f9;
-    flex: 1 1 calc(30% - 20px);
-    max-width: calc(30% - 20px);
+    flex: 0 0 auto;
+    width: 200px;
 }
 
 .product-card img {
@@ -108,7 +79,7 @@ input, textarea, select, .btn {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #0003b3;
 }
 
 /* Login/Register Pages */
@@ -120,18 +91,6 @@ input, textarea, select, .btn {
     min-height: 80vh;
     gap: 20px;
 }
-
-/* Footer - Always Stuck to Bottom */
-footer {
-    flex-shrink: 0; /* Prevent footer from shrinking */
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto; /* Push footer to bottom when content is short */
-}
-
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

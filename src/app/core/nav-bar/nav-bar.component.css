@@ -1,19 +1,22 @@
-.btn {
-    display: flex;
-    justify-content: center;
-    width: 100px;
-    height: 30px;
-    border: 1px solid #444444;
-    padding: 3px;
-    margin: 1px;
-    font-size: 12px;
-    font-weight: normal;
-    font-style: normal;
-    color: #222222;
-    background-color: #ffffff; 
-  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
 
-  .nav-bar {
-    display: flex;
-    justify-content: flex-end;
-  }
+nav .logo {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline;
+}
