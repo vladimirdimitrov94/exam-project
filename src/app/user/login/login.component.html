@@ -42,7 +42,7 @@
             @if (errorMessage) {
                 <div class="error">{{errorMessage}}</div>
             }
-            <button [disabled]="form.invalid">Login</button>
+            <button mat-raised-button [disabled]="form.invalid">Login</button>
         </form>
         <p>Don't have an account? <a routerLink="/register" style="color: black">Register here</a></p>
     </div>

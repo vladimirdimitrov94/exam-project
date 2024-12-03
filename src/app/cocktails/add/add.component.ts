@@ -4,11 +4,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../types/user';
 import { UserService } from '../../user/user.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, MatButtonModule],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })

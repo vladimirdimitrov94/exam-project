@@ -2,7 +2,6 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: bisque;
   position: fixed;
   top: 0;
   height: 50px;

@@ -5,11 +5,12 @@ import { Cocktail } from '../../types/cokctail';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { User } from '../../types/user';
 import { UserService } from '../../user/user.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [LoaderComponent, RouterLink],
+  imports: [LoaderComponent, RouterLink, MatButtonModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })

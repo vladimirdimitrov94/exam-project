@@ -3,11 +3,12 @@ import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
 import { User } from '../../types/user';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink, MatToolbarModule],
+  imports: [RouterLink, MatToolbarModule, MatButtonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
