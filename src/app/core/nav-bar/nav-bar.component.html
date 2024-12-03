@@ -1,10 +1,10 @@
 <mat-toolbar >
   <div class="logo" routerLink="/home">Cocktail Lab</div>
-  @if (isLogged) {
-    <h1 >Hello, {{ userName }}</h1>
-  }
 
   <div class="nav-links">
+    @if (isLogged) {
+      <h1 >Hello, {{ userName }}</h1>
+    }  
     <button mat-raised-button routerLink="/home">Home</button>
     <button mat-raised-button routerLink="/cocktails">Catalogue</button>
     @if (!isLogged) {
