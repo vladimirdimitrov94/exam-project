@@ -7,12 +7,18 @@ mat-toolbar {
   height: 50px;
 }
 
+
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   color: black;
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
 }
 
 .nav-links {
@@ -22,7 +28,6 @@ mat-toolbar {
 }
 
 h1 {
-  /* margin-left: 1rem; */
   color: black;
   justify-self: flex-end;
 }

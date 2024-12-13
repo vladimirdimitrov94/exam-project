@@ -36,12 +36,7 @@ export class CatalogueComponent implements OnInit {
     const endIndex = startIndex + event.pageSize;
 
     this.apiService.getAll().subscribe(c => {
-      console.log(startIndex);
-      console.log(endIndex);
-
       this.pagedCocktails = c.sort((a, b) => b.created - a.created).slice(startIndex, endIndex)
-      console.log(this.pagedCocktails);
-
     })
 
   }
