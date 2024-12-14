@@ -22,11 +22,9 @@
             </div>
 
             <div class="card-actions">
-                <!-- Ако потребителят не е автор -->
                 @if (!isAuthor) {
                 <button mat-raised-button (click)="like()">Like</button>
                 }@else {
-                <!-- Действия за автора -->
                 <button mat-raised-button [routerLink]="'/edit/' + cocktail.objectId">Edit</button>
                 <button mat-raised-button (click)="delete(cocktail.objectId)">Delete</button>
                 }
