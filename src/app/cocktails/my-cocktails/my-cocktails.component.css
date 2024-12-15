@@ -4,6 +4,17 @@
   justify-content: center;
 }
 
+
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.cardWrapper {
+  margin-top: 138px;
+}
+
+
 mat-card {
   cursor: pointer;
   transition: transform 0.2s ease-in-out;

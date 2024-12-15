@@ -3,6 +3,7 @@
     <img src="favicon.ico" alt="">
   </div>
 
+
   <div class="nav-links">
     @if (isLogged) {
     <h1>Hello, {{ userName }}</h1>
@@ -13,9 +14,10 @@
     <button mat-raised-button routerLink="/register">Register</button>
     <button mat-raised-button routerLink="/login">Login</button>
     }@else {
-
+    <button mat-raised-button routerLink="/my-cocktails">My cocktails</button>
     <button mat-raised-button routerLink="/add">Add</button>
     <button mat-raised-button (click)="logout()">Logout</button>
     }
   </div>
 </mat-toolbar>
+

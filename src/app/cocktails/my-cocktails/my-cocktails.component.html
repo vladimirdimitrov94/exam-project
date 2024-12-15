@@ -1,0 +1,25 @@
+<h1>My cocktails</h1>
+<main id="catalogue">
+
+    @if (cocktails.length == 0) {
+    <app-loader/>
+    } @else {
+    @for (cocktail of pagedCocktails; track $index){
+    <div class="cardWrapper">
+        <mat-card>
+            <div routerLink="/cocktails/{{cocktail.objectId}}">
+                <img src={{cocktail.img}} alt="Product">
+                <h3>{{cocktail.name}}</h3>
+            </div>
+    </mat-card>
+    </div>
+    }
+    }
+
+
+</main>
+
+@if(cocktails.length > 0){
+<mat-paginator [length]="cocktails.length" [pageSize]="5" [pageSizeOptions]="[5]" (page)="onPageChange($event)">
+</mat-paginator>
+}

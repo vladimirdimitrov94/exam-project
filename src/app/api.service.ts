@@ -28,5 +28,6 @@ export class ApiService {
   deleteCocktail(id: string){
     return this.http.delete(`/api/cocktails/${id}`)
   }
+
   
 }

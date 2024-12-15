@@ -7,6 +7,8 @@ import { EditComponent } from './cocktails/edit/edit.component';
 import { CatalogueComponent } from './cocktails/catalogue/catalogue.component';
 import { ErrorScreenComponent } from './core/error-screen/error-screen.component';
 import { DetailsComponent } from './cocktails/details/details.component';
+import { AuthGuard } from './guards/auth.guard';
+import { MyCocktailsComponent } from './cocktails/my-cocktails/my-cocktails.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,13 +21,14 @@ export const routes: Routes = [
     },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'add', component: AddComponent },
+    { path: 'add', component: AddComponent, canActivate: [AuthGuard] },
     {
-        path: 'edit', children: [
+        path: 'edit', canActivate: [AuthGuard], children: [
             { path: '', component: EditComponent },
             { path: ':cocktailId', component: EditComponent }
         ]
-    },
+    }, 
+    { path: 'my-cocktails', component: MyCocktailsComponent, canActivate: [AuthGuard] },
     { path: '404', component: ErrorScreenComponent },
     { path: '**', redirectTo: '/404' }
 ];

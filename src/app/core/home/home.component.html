@@ -1,4 +1,26 @@
-<h1>Welcome to the Cocktail Lab</h1>
+<div class="heroSection">
+
+    <div class="welcome">
+
+        <div class="headings">
+
+            <h1>Welcome to the Cocktail Lab</h1>
+
+            <p>
+                Get creative and have fun with our cocktails!
+            </p>
+
+        </div>
+
+        <div class="buttons">
+
+            <div class="btn">
+                <a routerLink="/cocktails">Check all cocktails here</a>
+            </div>
+
+        </div>
+
+</div>
 
 
 <main id="home">
@@ -6,7 +28,6 @@
     @if(cocktails.length == 0){
     <app-loader />
     } @else {
-
     @for (cocktail of cocktails; track $index) {
     <mat-card>
         <div class="product-card">

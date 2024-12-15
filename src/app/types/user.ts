@@ -1,9 +1,3 @@
-// export interface User {
-//     email: string;
-//     password: string;
-//     username: string;
-//     objectId: string;
-// }
 export interface User
 {
     lastLogin: string,

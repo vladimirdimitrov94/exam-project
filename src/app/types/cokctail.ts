@@ -7,6 +7,6 @@ export interface Cocktail {
     name: string;
     objectId: string;
     ownerId: string;
-    strength: string;
+    strength: number;
     likes: number;
 }

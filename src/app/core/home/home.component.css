@@ -3,6 +3,8 @@
     padding: 20px;
     justify-content: center;
   }
+
+  
   
   mat-card {
     cursor: pointer;
@@ -15,18 +17,66 @@
   }
   
   mat-card img {
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     margin: 10px;
   }
   
   .product-card {
     text-align: center;
   }
-  
-  h1 {
-    text-align: center;
+
+  .heroSection {
+    display: flex;
+    padding: 50px 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-self: center;
+}
+
+.welcome {
+    display: flex;
+    margin: 50px 0;
+    background-color: white;
+    padding: 40px 40px;
+    flex: 1 1 80%;
+    background-color: transparent;
+}
+
+.headings {
+    flex: 1 1 50%;
+}
+
+.headings>h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #444444;
     margin-bottom: 20px;
-    margin-top: 150px;
-  }
-  
+}
+
+.headings>p {
+    font-size: 2em;
+    font-weight: 300
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    flex: 1 1 30%;
+    padding: 0px 60px;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-around;
+    align-self: flex-end;
+    flex: 1 1 100%;
+    background-color: #0090c5;
+    color: white;
+    border-radius: 3px;
+    padding: 15px 0px;
+    font-weight: 700;
+    font-size: 1.5rem;
+}

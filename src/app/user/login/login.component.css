@@ -1,32 +1,36 @@
+/* Основен контейнер */
 #login {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-color: #f7f7f7;
   }
   
   .auth-container {
     max-width: 400px;
     width: 100%;
     padding: 20px;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     border-radius: 8px;
     text-align: center;
+;
+  }
+
+  h1 {
+    margin-bottom: 150px;
   }
   
   .auth-title {
     margin-bottom: 20px;
     font-size: 1.8rem;
-    color: #333;
   }
   
   .auth-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  
   }
   
   .auth-input {
@@ -70,3 +74,6 @@
     text-decoration: underline;
   }
   
+.register {
+  padding: 15px;
+}

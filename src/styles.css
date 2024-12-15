@@ -1,8 +1,24 @@
-html, body {
+* {
     margin: 0;
     padding: 0;
-  }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-image: url("https://dopeaffood.com/wp-content/uploads/2024/05/Pineapple-Drink.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 101%;
+    background-attachment: fixed;
+
+}
 
 .error {
-    color: red;
+    color: rgb(255, 0, 0);
+    font-size: large;
+    font-weight: 600;
 }
