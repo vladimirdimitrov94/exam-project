@@ -89,7 +89,6 @@
     Services:
     UserService: Manages user authentication, login, logout, and registration.
     ApiService: Handles HTTP requests to the Backendless API for cocktail data.
-    Resolvers: Preload data before the components are rendered.
 
     Routing:
     Angular Router is used for navigating between pages.
