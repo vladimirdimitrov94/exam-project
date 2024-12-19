@@ -5,7 +5,12 @@
 
     The backend uses Backendless API for handling user authentication and data operations.
 
+
 ## How to Run the Project
+
+    Web page - https://cocktailab.netlify.app/
+
+    Run locally:
 
     1. Prerequisites
     Ensure the following are installed on your machine:
