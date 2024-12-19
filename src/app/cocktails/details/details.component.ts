@@ -6,11 +6,12 @@ import { LoaderComponent } from '../../shared/loader/loader.component';
 import { User } from '../../types/user';
 import { UserService } from '../../user/user.service';
 import { MatButtonModule } from '@angular/material/button';
+import { CreatedAtPipe } from '../../shared/pipes/created-at.pipe';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [LoaderComponent, RouterLink, MatButtonModule],
+  imports: [LoaderComponent, RouterLink, MatButtonModule, CreatedAtPipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -20,8 +21,9 @@ export class DetailsComponent implements OnInit {
   user: User | null = null;
   isLoading = true;
   isAuthor = false;
+  likes: number | null = null;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService, private router:Router) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService, private router: Router) { }
 
   get isLogged(): boolean {
     return this.userService.isLogged
@@ -36,6 +38,7 @@ export class DetailsComponent implements OnInit {
 
     this.apiService.getSingle(id).subscribe(c => {
       this.cocktail = c
+      this.likes = Object.keys(this.cocktail.likes).length;
       this.isLoading = false;
 
       if (this.isLogged) {
@@ -48,18 +51,42 @@ export class DetailsComponent implements OnInit {
 
     }
     )
+
+    this.isLiked()
   }
 
-  delete(id:string){
-    this.apiService.deleteCocktail(id).subscribe(() => {
-      this.router.navigate(['/cocktails'])
-    })
+  delete(id: string) {
+    const confirmed = window.confirm('Are you sure you want to delete this cocktail?');
+    if (confirmed) {
+      this.apiService.deleteCocktail(id).subscribe(() => {
+        this.router.navigate(['/cocktails'])
+      })
+    } else {
+      return;
+    } 
   }
 
-  like(){
-    this.cocktail.likes ++;
-    const likes = this.cocktail.likes
-    this.apiService.editCocktail(this.cocktail.objectId, {likes: likes}).subscribe(() => {})
+
+  like() {
+
+    const userId: string = this.user!.objectId;
+
+    this.cocktail.likes[userId] = userId;
+
+    this.apiService
+      .editCocktail(this.cocktail.objectId, { likes: this.cocktail.likes })
+      .subscribe(c => {
+        this.cocktail = c;
+      });
+
+    this.likes = Object.keys(this.cocktail.likes).length;
+  }
+
+  isLiked(): boolean {
+    if (this.cocktail.likes?.hasOwnProperty(this.user!.objectId)) {
+      return true;
+    }
+    return false;
   }
 
 }

@@ -4,21 +4,24 @@
 }
 
 a {
-    text-decoration: none;
     color: inherit;
 }
 
 body {
-    background-image: url("https://dopeaffood.com/wp-content/uploads/2024/05/Pineapple-Drink.jpg");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/030/601/685/non_2x/cold-lemon-drink-close-up-on-the-beach-ai-generative-free-photo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-size: 101%;
-    background-attachment: fixed;
-
+    background-size: 100%;
 }
 
 .error {
-    color: rgb(255, 0, 0);
+    margin-top: 20px;
+    color: red;
     font-size: large;
     font-weight: 600;
 }
+
+input::placeholder {
+    color: black;
+  }
+  

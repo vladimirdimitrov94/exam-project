@@ -17,40 +17,22 @@
                     <p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
                     <p><strong>Method:</strong> {{cocktail.method}} </p>
                     <p><strong>Strength:</strong> {{cocktail.strength}} </p>
-                    <p><strong>Likes:</strong> {{cocktail.likes}} </p>
+                    <p><strong>Created:</strong> {{cocktail.created | createdAt}} </p>
+                    <p><strong>Likes:</strong> {{likes}} </p>
                 </div>
             </div>
 
             <div class="card-actions">
-                <!-- Ако потребителят не е автор -->
+                @if (isLogged) {
                 @if (!isAuthor) {
-                <button mat-raised-button (click)="like()">Like</button>
+                <button [disabled]="isLiked()" mat-raised-button (click)="like()">Like</button>
                 }@else {
-                <!-- Действия за автора -->
                 <button mat-raised-button [routerLink]="'/edit/' + cocktail.objectId">Edit</button>
                 <button mat-raised-button (click)="delete(cocktail.objectId)">Delete</button>
+                }
                 }
             </div>
         </div>
     </div>
 </main>
 }
-
-
-
-
-<!-- <h1>Product Details</h1>
-<img src={{cocktail.img}} alt="Product">
-<h2>{{cocktail.name}}</h2>
-
-
-<p><strong>Ingredients:</strong> {{cocktail.ingredients}} </p>
-<p><strong>Method:</strong> {{cocktail.method}} </p>
-<p><strong>Strength:</strong> {{cocktail.strength}} </p>
-<p><strong>Likes:</strong> {{cocktail.likes}} </p>
-@if (!isAuthor) {
-<a class="btn" (click)="like()">Like</a>
-} @else {
-<a class="btn" routerLink="/edit/{{cocktail.objectId}}">Edit</a>
-<a class="btn" (click)="delete(cocktail.objectId)">Delete</a>
-} -->

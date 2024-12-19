@@ -30,7 +30,7 @@ export class CatalogueComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getAll().subscribe(c => {
       this.cocktails = c
-      this.cocktails.sort((a, b) => b.created - a.created)
+      this.cocktails.sort((a, b) => Number(b.created) - Number(a.created))
       this.pagedCocktails = this.cocktails.slice(0, 5)
 
     })
@@ -50,11 +50,12 @@ export class CatalogueComponent implements OnInit {
 
   }
 
-  onSortSelected(event: any) {
-    this.currentSort = event.target.value;
+  onSortSelected(event: Event) {
+    this.currentSort = (event.target as HTMLSelectElement)?.value;
 
 
-    this.pagedCocktails.sort((a, b) => this.sortCocktails(a, b, this.currentSort));
+    this.cocktails.sort((a, b) => this.sortCocktails(a, b, this.currentSort));
+    this.pagedCocktails = this.cocktails.slice(0, 5);
     this.paginator.firstPage();
 
   }
@@ -62,10 +63,10 @@ export class CatalogueComponent implements OnInit {
   sortCocktails(a: Cocktail, b: Cocktail, sortBy: string): number {
 
     if (sortBy === 'newest') {
-      return b.created - a.created;
+      return Number(b.created) - Number(a.created);
     }
     if (sortBy === 'mostLiked') {
-      return b.likes - a.likes;
+      return Object.keys(b.likes).length - Object.keys(a.likes).length;
     }
     if (sortBy === 'strength') {
       return b.strength - a.strength;

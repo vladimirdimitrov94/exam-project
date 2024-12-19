@@ -15,12 +15,12 @@ export const AuthGuard: CanActivateFn = () => {
 }
 
 export const LoggedGuard: CanActivateFn = () => {
-    const userService = inject(UserService);
     const router = inject(Router);
 
-    if (localStorage.getItem('sessionId')){
-        router.navigate(['/home']);
+    if (!localStorage.getItem('sessionId')){
+        return true;
     }
-
-    return true;
+    
+    router.navigate(['/home']);
+    return false;
 };

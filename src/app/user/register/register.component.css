@@ -23,22 +23,7 @@
   .auth-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-  }
-  
-  .auth-input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .auth-input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    gap: 20px;
   }
   
   button {
@@ -46,27 +31,18 @@
     align-self: center;
   }
   
-  .auth-button:hover {
-    background-color: #0056b3;
-  }
-   
-  .auth-footer {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .auth-footer .auth-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .auth-footer .auth-link:hover {
-    text-decoration: underline;
-  }
-  
-
   .login {
     margin-top: 15px;
+  }
+
+  input {
+    border: none;
+    background-color: inherit;
+    border-bottom: 2px solid black;
+  }
+  
+  input:focus {
+    outline: none;
+    background-color: inherit;
+    border-bottom: 2px solid black
   }

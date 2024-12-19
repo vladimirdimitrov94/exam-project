@@ -20,7 +20,7 @@ export class HomeComponent{
   constructor(private apiService: ApiService, private userService: UserService) {
 
     this.apiService.getAll().subscribe(c => {
-      this.cocktails = c.sort((a, b) => b.created - a.created).slice(0, 3)
+      this.cocktails = c.sort((a, b) => Number(b.created) - Number(a.created)).slice(0, 3)
     })
   }
 }

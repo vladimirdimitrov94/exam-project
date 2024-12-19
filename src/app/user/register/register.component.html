@@ -52,6 +52,9 @@
                 }
 
             </form>
+            @if (errorMessage) {
+                <div class="error">{{errorMessage}}</div>
+            }
             <button mat-raised-button [disabled]='form.invalid'>Register</button>
         </form>
         <p class="login">Already have an account? <a routerLink="/login" style="color: black">Login here</a></p>

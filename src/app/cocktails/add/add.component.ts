@@ -40,7 +40,8 @@ export class AddComponent implements OnInit{
       method: form.value.method,
       name: form.value.name,
       strength: form.value.strength,
-      ownerId: this.ownerId
+      ownerId: this.ownerId,
+      likes: {}
     }
 
 

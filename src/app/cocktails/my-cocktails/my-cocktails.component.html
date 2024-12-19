@@ -1,9 +1,11 @@
 <h1>My cocktails</h1>
 <main id="catalogue">
 
-    @if (cocktails.length == 0) {
+    @if (isLoading) {
     <app-loader/>
-    } @else {
+    } @else if (cocktails.length === 0) {
+    <h2>Don't have any cocktails yet? Add one <a routerLink="/add">here</a></h2>
+    } @else() {}
     @for (cocktail of pagedCocktails; track $index){
     <div class="cardWrapper">
         <mat-card>
@@ -14,8 +16,6 @@
     </mat-card>
     </div>
     }
-    }
-
 
 </main>
 

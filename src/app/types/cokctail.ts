@@ -1,6 +1,6 @@
 
 export interface Cocktail {
-    created: number;
+    created: string;
     img: string;
     ingredients: string;
     method: string;
@@ -8,5 +8,5 @@ export interface Cocktail {
     objectId: string;
     ownerId: string;
     strength: number;
-    likes: number;
+    likes: { [key: string]: string };
 }

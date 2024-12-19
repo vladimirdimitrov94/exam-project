@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { matchPasswordValidator } from '../../utils/match-passwords.validator';
 import { UserService } from '../user.service';
 import { MatButtonModule } from '@angular/material/button';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  errorMessage: string | null = null;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -41,11 +43,25 @@ export class RegisterComponent {
 
 
   register() {
-    const { username, email, passGroup: { password, rePassword } = {} } = this.form.value
-    this.userService.register(email!, password!, username!).subscribe(() => {
-      this.router.navigate(['/home'])
-      this.userService.login(email!, password!)
+
+
+    const { username, email, passGroup: { password } = {} } = this.form.value
+
+    this.userService.register(email!, password!, username!).pipe(
+      catchError(err => {
+        this.errorMessage = err.error?.message
+        return throwError(() => err)
+      })
+    ).subscribe({
+      next: () => {
+        this.errorMessage = null;
+        this.router.navigate(['/home'])
+        this.userService.login(email!, password!)
+      },
+      error: () => {
+      }
     });
-    
   }
 }
+
+

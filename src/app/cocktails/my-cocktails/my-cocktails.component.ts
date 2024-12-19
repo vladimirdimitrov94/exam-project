@@ -36,12 +36,17 @@ export class MyCocktailsComponent implements OnInit {
     const userID = this.userData?.objectId
 
 
-    this.apiService.getAll().subscribe(c => {
+    this.apiService.getAll().subscribe({next: c => {
       this.cocktails = c.filter(c => c.ownerId === userID);
       this.pagedCocktails = this.cocktails.slice(0, 5)
-    })
+      if (c.length > 0) {
+        this.isLoading = false;
+      }
+    }, error: (err) => {
+      console.log(err);
+      this.isLoading = false;
+    }})
 
-    this.isLoading = false
   }
 
   onPageChange(event: any) {
@@ -50,7 +55,7 @@ export class MyCocktailsComponent implements OnInit {
     const endIndex = startIndex + event.pageSize;
 
     this.apiService.getAll().subscribe(c => {
-      this.pagedCocktails = c.sort((a, b) => b.created - a.created).slice(startIndex, endIndex)
+      this.pagedCocktails = c.sort((a, b) => Number(b.created) - Number(a.created)).slice(startIndex, endIndex)
     })
 
   }

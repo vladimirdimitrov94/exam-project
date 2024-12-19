@@ -22,7 +22,7 @@ export class ApiService {
   }
 
   editCocktail(id: string, data: {}){
-    return this.http.put(`/api/cocktails/${id}`, data)
+    return this.http.put<Cocktail>(`/api/cocktails/${id}`, data)
   }
   
   deleteCocktail(id: string){
